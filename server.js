@@ -43,7 +43,7 @@ app.get('/', async(req, res, next) => {
                     ${
                         souvenirs.map(souvenir => `
                         <li>
-                            ${souvenir.person.name} purchased a ${souvenir.thing.name} in ${souvenir.place.name}
+                            ${souvenir.person.name} purchased ${souvenir.count} ${souvenir.thing.name}(s) in ${souvenir.place.name} on ${souvenir.purchasedOn}
                             <form method='POST' action='/${souvenir.id}?_method=DELETE'>
                                 <button>
                                 Delete 

@@ -25,7 +25,16 @@ const Thing = conn.define('thing', {
     }
 })
 
-const Souvenir = conn.define('souvenir', {})
+const Souvenir = conn.define('souvenir', {
+    count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1
+    },
+    purchasedOn: {
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+    }
+})
 
 Souvenir.belongsTo(Person)
 Souvenir.belongsTo(Place)
@@ -52,8 +61,8 @@ const syncAndSeed = async() => {
         Thing.create({ name: 'cup' }),
     ])
     const souvenirs = await Promise.all ([
-        Souvenir.create({personId: moe.id, thingId: hat.id, placeId: london.id}),
-        Souvenir.create({personId: moe.id, thingId: bag.id, placeId: paris.id}),
+        Souvenir.create({personId: moe.id, thingId: hat.id, placeId: london.id, count: 2}),
+        Souvenir.create({personId: moe.id, thingId: bag.id, placeId: paris.id, count: 3}),
         Souvenir.create({personId: ethyl.id, thingId: shirt.id, placeId: nyc.id})
     ])
 }
