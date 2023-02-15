@@ -52,9 +52,9 @@ const syncAndSeed = async() => {
         Thing.create({ name: 'cup' }),
     ])
     const souvenirs = await Promise.all ([
-        Souvenir.create({personId: '1', thingId: '1', placeId: '3'}),
-        Souvenir.create({personId: '1', thingId: '2', placeId: '1'}),
-        Souvenir.create({personId: '4', thingId: '3', placeId: '2'})
+        Souvenir.create({personId: moe.id, thingId: hat.id, placeId: london.id}),
+        Souvenir.create({personId: moe.id, thingId: bag.id, placeId: paris.id}),
+        Souvenir.create({personId: ethyl.id, thingId: shirt.id, placeId: nyc.id})
     ])
 }
 
